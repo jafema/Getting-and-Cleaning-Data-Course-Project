@@ -1,32 +1,33 @@
 Getting and Cleaning Data Course Project
 ========================================
 
+Script: *run_analysis.R*
+
 Set the Set Working directory as to source file location, in this path is present also the data form UCI HAR Dataset.zip in uncompress format.
 
 Firstly, it is need to get the data. This is done by reading the files
-features.txt
-activity_labels.txt
-subject_train.txt
-y_train.txt
-X_train.txt
-subject_test.txt
-y_test.txt
-X_test.txt
+* features.txt
+* activity_labels.txt
+* subject_train.txt
+* y_train.txt
+* X_train.txt
+* subject_test.txt
+* y_test.txt
+* X_test.txt
 
 The data from each file will be stored in a data frame according the following relation 
 features.txt	==>	Features
-activity_labels.txt	==>	activity_label
-subject_train.txt	==>	TrainSubject
-y_train.txt	==>	TrainActivity
-X_train.txt	==>	 TrainFeature
-subject_test.txt 	==>	TestSubject
-y_test.txt ==>	TestActivity
-X_test.txt ==>	TestFeature
+* activity_labels.txt	==>	activity_label
+* subject_train.txt	==>	TrainSubject
+* y_train.txt	==>	TrainActivity
+* X_train.txt	==>	 TrainFeature
+* subject_test.txt 	==>	TestSubject
+* y_test.txt ==>	TestActivity
+* X_test.txt ==>	TestFeature
 
 All these data will be used to build a global data frame to be used in the analysis.
 
-In the forum there is a thread from David Hood show a picture about the structure of the global data
-frame
+In the forum there is a thread from David Hood show a picture about the structure of the global data frame:
 https://class.coursera.org/getdata-007/forum/thread?thread_id=49
 
 This script follows this pattern with the difference for the variables Subject and Activity which are located in the first and second column.
@@ -56,5 +57,7 @@ As is requested by the project a second data frame is created, independent tidy 
 As a final step DF_tidy_act_sub is printing is txt the file.
 
 One way to read the data from this txt file is with the following R code:
+```
 data <- read.table(file_path, header = TRUE) 
 View(data)
+```
