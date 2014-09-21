@@ -47,7 +47,7 @@ Now all variables are combined following the order subject,activity,feature. By 
 To get profit from package dplyr data freme is transformed. "data" to Data Frame Table to use the methods from this library over the data. This step creates the variable DF.
 Over this DF will be select the only the measurements on the mean and standard deviation for each measurement also it will get the columns regarding subject, activity.
 There are just take the varialbes that include mean() and std() at the end. Due tu according features_info.txt mean(): Mean value and std(): Standard deviation.
-This selection is store in a data frame table named DF_mean_std
+This selection is store in a data frame table named DF
 
 The activity variable observations are replaced by labels instead number in order to have a clear view about the meaning. The list of activities related to each number may be found at activity_labels.txt.
 Some variables are renamed by removing characters as (, ), - will make more difficult work wit it over the script.
