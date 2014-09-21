@@ -67,28 +67,28 @@ names(feature) <- Features$V2 # takes the names from the txt file where feature 
 
 
 # merge all in one data frame
-data <- cbind(subject,activity,feature)
+DF <- cbind(subject,activity,feature)
 
 # pass data to Data Frame Table according dplyr to use the methods from this library over the data
-DF <- tbl_df(data)
+DF <- tbl_df(DF)
 
 # ==================================================================================================
 # Extracts only the measurements on the mean and standard deviation for each measurement 
 # also it will get the columns regarding subject, activity
 # with contains is selected the variables which have the string specified
-DF_mean_std <- select(DF,1:2, contains("-mean()"), contains("-std()") )
+DF <- select(DF,1:2, contains("-mean()"), contains("-std()") )
 
 # ==================================================================================================
-# replacing the content of DF_mean_std activity by labels instead numbers
-DF_mean_std$activity <- activity_label[DF_mean_std$activity,2]
+# replacing the content of DF activity by labels instead numbers
+DF$activity <- activity_label[DF$activity,2]
 
 
 # ==================================================================================================
 # Appropriately labels the data set with descriptive variable names
 # remove from the varialbes names characters as (, ), -
-names(DF_mean_std) <- sub("()","",names(DF_mean_std),fixed = TRUE)
-names(DF_mean_std) <- sub("-","",names(DF_mean_std),fixed = TRUE)
-names(DF_mean_std) <- sub("-","",names(DF_mean_std),fixed = TRUE)
+names(DF) <- sub("()","",names(DF),fixed = TRUE)
+names(DF) <- sub("-","",names(DF),fixed = TRUE)
+names(DF) <- sub("-","",names(DF),fixed = TRUE)
 
 
 # ==================================================================================================
@@ -96,7 +96,7 @@ names(DF_mean_std) <- sub("-","",names(DF_mean_std),fixed = TRUE)
 # and each subject
 
 # group data by variables subject and activity
-DF_tidy_act_sub <- group_by(DF_mean_std, subject, activity)
+DF_tidy_act_sub <- group_by(DF, subject, activity)
 
 # order the data 
 DF_tidy_act_sub <- arrange(DF_tidy_act_sub, subject, activity )
